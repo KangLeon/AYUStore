@@ -1,11 +1,12 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, "__esModule", { value: true });   
 var util_1 = require("../../utils/util");
 Page({
     data: {
         logs: [],
     },
-    onLoad: function () {
+    onLoad: function (opt) {
+        console.log(opt);
         this.setData({
             logs: (wx.getStorageSync('logs') || []).map(function (log) {
                 return {
@@ -13,6 +14,7 @@ Page({
                     timeStamp: log
                 };
             }),
+            logColor: opt.color,
         });
     },
 });
